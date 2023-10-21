@@ -5,10 +5,10 @@
 
 }
 
-#weather-section{
+.weather-section{
   background-color: #1E213A;
   height: 100vh;
-  width: 25%;
+  width: 30%;
   
 }
 
@@ -29,12 +29,15 @@ main{
   border-radius: 50%;
   border: none;
   height: 40px;
-  
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.btn-search{
+.btn-search-places{
   height: 40px;
   width: 161px;
+  border: none;
 }
 
 .btns-weather{
@@ -47,9 +50,13 @@ main{
 .img-cloudBg{
   opacity: 0.1;
   overflow: hidden; 
-  margin-left: -40%;
+  margin-top: .5rem;
   
-  
+}
+
+.img-cloudBg > img{
+  max-width: 120%;
+  margin-left: -10%;
 }
 
 .img-weather{
@@ -68,3 +75,171 @@ main{
   height: auto;
 }
 
+.container-weatherTitle{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weather-title{
+  font-size: 120px;
+  color: #E7E7EB;
+
+}
+
+.grades-title{
+  font-size: 50px;
+  color: #A09FB1;
+  padding-top: 2rem;
+}
+
+.sidebar{
+  background-color: #1E213A;
+  height: 100vh;
+  width: 30%;
+}
+
+.input-search-city{
+  height: 40px;
+  padding-left: 40px;
+  background-color: transparent;
+  border: 1px solid white;
+  width: 300px;
+  color: white;
+  font-size: 1rem;
+}
+
+.input-icon{
+  position: relative;
+}
+
+.icon{
+  position: absolute;
+  left: 10px; /* Ajusta la posición del icono a tu preferencia */
+  top: 50%; /* Centra verticalmente el icono */
+  transform: translateY(-50%);
+  color: white;
+  size: .5rem;
+}
+
+.input-btn{
+  display: flex;
+  margin: 1rem 0 0 2rem;
+}
+
+.btn-search{
+  margin-left: .8rem;
+  height: 40px;
+  background-color: #3c47e9;
+  border: none;
+  color: white;
+  width: 70px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.p-sidebar-close{
+  color: white;
+}
+
+.p-sidebar-header{
+  padding: 1rem;
+  padding-right: 2.5rem;
+}
+
+.defaultCity{
+  border: none;
+  background-color: transparent;
+  color: white;
+  margin: 1rem;
+  height: 3.5rem;
+  padding-left: 1rem;
+  width: 85%;
+  display: flex;
+  justify-content: space-between;
+  padding-right: 0.5rem;
+}
+
+.defaultCity:hover{
+  border: 1px solid #616475;
+}
+
+.container-btn-city{
+  display: flex;
+  flex-direction: column;
+  margin-top: 2rem;
+}
+
+.weather-name{
+  display: flex;
+  justify-content: center;
+}
+
+.container-name > h1{
+  color :#A09FB1;
+}
+
+.location-icon{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+.location-icon > div{
+  font-size: 1.2rem;
+  color: #A09FB1;
+}
+
+.date-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.date-container > span{
+  color: #A09FB1;
+  font-size: 1.2rem;
+}
+
+.title-details{
+  color: white;
+}
+
+.container-card-details{
+  background-color: #1E213A;
+  height: 200px;
+  width: 328px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.container-cards-details{
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  gap: 4rem;
+  margin-top: 2rem;
+  color: #E7E7EB;
+}
+
+.details-section{
+  width: 70%;
+}
+
+#details-section-content{
+  margin-left: 10rem;
+}
+
+.content-card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.container-card-details > h3{
+  font-size: 1rem;
+}
