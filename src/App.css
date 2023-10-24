@@ -7,7 +7,7 @@
 
 .weather-section{
   background-color: #1E213A;
-  height: 100vh;
+  
   width: 30%;
   
 }
@@ -15,7 +15,7 @@
 main{
   background: #100E1D;
   display: flex;
-
+  
 }
 
 .btn-principal{
@@ -62,8 +62,8 @@ main{
 .img-weather{
   position: absolute;
   z-index: 1;
-  left: 18%;
-  top: 20%;
+  left: 25%;
+  top: 15%;
 }
 
 .img-container{
@@ -79,6 +79,8 @@ main{
   display: flex;
   align-items: center;
   justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
 }
 
 .weather-title{
@@ -175,6 +177,8 @@ main{
 .weather-name{
   display: flex;
   justify-content: center;
+  margin-top: 4rem;
+  margin-bottom: 4rem;
 }
 
 .container-name > h1{
@@ -210,21 +214,22 @@ main{
 
 .container-card-details{
   background-color: #1E213A;
-  height: 200px;
-  width: 328px;
+  height: auto;
+  width: 45%;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  
 }
 
 .container-cards-details{
   display: flex;
   flex-wrap: wrap;
-  width: 100%;
+  width: 80%;
   gap: 4rem;
   margin-top: 2rem;
   color: #E7E7EB;
+  margin-bottom: 4rem;
 }
 
 .details-section{
@@ -233,13 +238,144 @@ main{
 
 #details-section-content{
   margin-left: 10rem;
+  margin-top: 2rem;
 }
 
 .content-card{
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: .5rem 0 1rem 0;
+}
+
+.content-card > h2{
+  font-size: 2.5rem;
 }
 .container-card-details > h3{
   font-size: 1rem;
+  margin: 1.5rem 0 1.5rem 0;
+}
+
+
+.normal-button{
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #585676;
+  font-size: 900;
+  color: white;
+  margin: 0.5rem;
+}
+
+.active-button{
+  width: 40px;
+  border-radius: 50%;
+  border: none;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #E7E7EB;
+  font-size: 900;
+  color: #100E1D;
+  margin: 0.5rem;
+}
+.normal-button:hover{
+  color: #100E1D;
+  background-color: #E7E7EB;
+}
+
+.btns-grades-container{
+  display: flex;
+  justify-content: end;
+  width: 80%;
+}
+
+.container-forecast{
+  display: flex;
+  flex-wrap: wrap;
+  width: 91%;
+  margin: 2rem 0 3.5rem 0;
+  gap: 1.5rem;
+}
+
+.subcontainer-forecast{
+  background-color: #1E213A;
+  width: 15%;
+  height: auto;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.subcontainer-forecast > h2{
+  color: white;
+  font-size: medium;
+  margin-top: 1rem;
+}
+
+.temp-max{
+  color: white;
+  margin: .5rem;
+}
+.temp-min{
+  color: #908fa2;
+  margin: .5rem;
+}
+
+.container-max-min-temp{
+  display: flex;
+}
+
+.bar{
+  margin: 1rem 0 2rem 0;
+  overflow: hidden;
+  width: 70%;
+  border: none;
+  border-radius: 12px;
+  /* display: flex;
+  align-items: center; */
+  background-color: white;
+  margin: -.010rem;
+}
+
+button{
+  cursor: pointer;
+}
+
+.porcentage{
+  border-radius: 12px;
+  min-width: 0%;
+  background-color: yellow;
+  height: 10px;
+}
+
+.container-bar{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+}
+
+.container-porcentage{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin: 1.2rem 0 1.8rem 0;
+}
+
+.sign-porcentage{
+  width: 70%;
+  display: flex;
+  justify-content: end;
+}
+
+.icon-direction{
+  margin-top: 2rem;
 }

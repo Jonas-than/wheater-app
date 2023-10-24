@@ -5,27 +5,35 @@ function useLocation(){
   const [lat, setLat] = useState(null);
   const [long, setLong] = useState(null);
   const [currentWeather, setCurrentWeather] = useState(null);
-
-  const [city, setCity] = useState('')
+  const [city, setCity] = useState(null)
+  const [unit, setUnit] = useState('metric')
   const [data, setData] = useState(null)
 
   const getData = async (url, setState) =>{
     const res = await fetch(url)
+    if(res.ok){ 
     const datos = await res.json()
+    console.log('Datos de la API:', datos)
     setState(datos)
+    }else{ 
+    console.log('Error en la solicitud de API')
+    }
   }
 
     useEffect(() =>{
-        getData(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}&units=metric`, setData)
-    },[city])
+      if(city){
+        getData(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}&units=${unit}`, setData)
+        console.log('city cambio', city)
+      }
+      },[city])
 
 
 
   useEffect(() => {
     if(lat === null && long === null) return;
 
-    getData(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${KEY}&units=metric`,setCurrentWeather);
-    
+    getData(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${long}&appid=${KEY}&units=${unit}`,setCurrentWeather);
+    console.log('Ubicacion obtenida:', lat,long);
   }, [lat, long]);
 
   const handleSucces = (data) => {
@@ -46,18 +54,27 @@ function useLocation(){
 
 
   const handleClickCityDefault = (e) => {
-    console.log(data)
     setCity(e.target.value)
   }
 
   const changeCity = (e) => {
+    e.preventDefault()
+    setCity(e.target[0].value)
+  }
+
+  const handleClickCityDefaultForecast = (e) => {
+    setCity(e.target.value)
+  }
+
+  const changeCityForecast = (e) => {
     e.preventDefault();
     setCity(e.target[0].value)
   }
 
+
  
 
-  return {currentWeather, handleLocation, city, changeCity, data, handleClickCityDefault}
+  return {currentWeather, handleLocation, city, changeCity, data, handleClickCityDefault, handleClickCityDefaultForecast, changeCityForecast, setCity, setCurrentWeather, unit, setUnit}
 }
 
 export default useLocation
