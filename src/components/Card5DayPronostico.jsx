@@ -1,22 +1,63 @@
 import React, {useState, useEffect} from 'react'
 
-function Card5DayPronostico({city, dailyTemperatures, setDailyTemperatures}) {
-
-  
-  //const [dailyTemperatures, setDailyTemperatures] = useState([]);
+function Card5DayPronostico({city, dailyTemperatures, setDailyTemperatures, lat, long}) {
   
   const KEY = 'e2a81dbb65d9c72db59adbccdf71285e';
   const units = 'metric'
 
+//probando conseguir pronostico con latitud y longitud
+  const getWeatherByLocation = async (latitude, longitude) => {
+    try {
+      const res = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${KEY}&units=metric`
+      );
+      const response = await res.json();
+      if (response && response.list && Array.isArray(response.list)) {
+        const groupedData = groupDataByDay(response.list);
+        setDailyTemperatures(groupedData);
+      } else {
+        console.error('Error: Invalid response from the API');
+      }
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
+    }
+  };
+
+  
+  const getWeatherByCoordinates = async (lat, long) => {
+    try {
+      const res = await fetch(
+        `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${long}&appid=${KEY}&units=metric`
+      );
+      const response = await res.json();
+      if (response && response.list && Array.isArray(response.list)) {
+        const groupedData = groupDataByDay(response.list);
+        setDailyTemperatures(groupedData);
+      } else {
+        console.error('Error: Invalid response from the API');
+      }
+    } catch (error) {
+      console.error('Error fetching weather data:', error);
+    }
+  };
+
+//probando conseguir pronostico con latitud y longitud
+
+  
   useEffect(() => {
     const getData = async () => {
       const res = await fetch(
         `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${KEY}&units=${units}`
       );
-      const data = await res.json();
-      const groupedData = groupDataByDay(data.list)
-      setDailyTemperatures(groupedData);
-      console.log('forecast:',dailyTemperatures)
+      const response = await res.json();
+      if(response && response.list && Array.isArray(response.list)){
+        const groupedData = groupDataByDay(response.list)
+        setDailyTemperatures(groupedData);
+        console.log('forecast:',dailyTemperatures)
+      }else {
+        console.error('Error: Invalid response from the API');
+      }
+     
     }
     getData();
   },[city, units])
@@ -46,6 +87,8 @@ function Card5DayPronostico({city, dailyTemperatures, setDailyTemperatures}) {
     return groupedData;
   }
 
+  
+
   const nextFiveDays = Object.keys(dailyTemperatures)
   .filter((date, index) => index !== 0)
   .slice(0, 5);
@@ -64,6 +107,7 @@ function Card5DayPronostico({city, dailyTemperatures, setDailyTemperatures}) {
         ))}
     </>
   )
+
 }
 
 export default Card5DayPronostico

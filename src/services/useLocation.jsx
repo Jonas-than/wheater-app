@@ -22,10 +22,29 @@ function useLocation(){
 
     useEffect(() =>{
       if(city){
-        getData(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}&units=${unit}`, setData)
-        console.log('city cambio', city)
+        getData(`https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${KEY}&units=metric`, setData)
       }
       },[city])
+
+//probando conseguir pronostico con latitud y longitud
+    
+      const getLocationWeather = () => { 
+        navigator.geolocation.getCurrentPosition(
+          (position) => {
+            const {latitude, longitude} = position.coords;
+            getWeatherByCoordinates(latitude, longitude);
+          },
+          (error) => {
+            console.error('Error al obtener la ubicacion:', error)
+          }
+        )
+      }
+    
+      useEffect(()=>{
+        getLocationWeather();
+      }, [])
+    
+//probando conseguir pronostico con latitud y longitud
 
 
 
@@ -36,11 +55,11 @@ function useLocation(){
     console.log('Ubicacion obtenida:', lat,long);
   }, [lat, long]);
 
-  const handleSucces = (data) => {
-    console.log('tenemos la ubi current weather', data);
-    const { latitude, longitude } = data.coords;
+  const handleSucces = (position) => {
+    const { latitude, longitude } = position.coords;
     setLat(latitude)
     setLong(longitude);
+    getWeatherByLocation(lat, long);
   }
 
   const handleError = () => {
@@ -74,7 +93,7 @@ function useLocation(){
 
  
 
-  return {currentWeather, handleLocation, city, changeCity, data, handleClickCityDefault, handleClickCityDefaultForecast, changeCityForecast, setCity, setCurrentWeather, unit, setUnit}
+  return {currentWeather, handleLocation, city, changeCity, data, handleClickCityDefault, handleClickCityDefaultForecast, changeCityForecast, setCity, setCurrentWeather, unit, setUnit, lat, long}
 }
 
 export default useLocation

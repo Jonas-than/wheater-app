@@ -24,7 +24,7 @@ function App() {
     setIsButton2Active(true);
   };
   
-  const {currentWeather, handleLocation, data, city, setCity, changeCityForecast, handleClickCityDefault, changeCity, handleClickCityDefaultForecast, setCurrenWeather, unit, setUnit} = useLocation()
+  const {currentWeather, handleLocation, data, city, setCity, changeCityForecast, handleClickCityDefault, changeCity, handleClickCityDefaultForecast, setCurrenWeather, unit, setUnit, lat, long} = useLocation()
   const [showData, setShowData] = useState(true)
   const [dailyTemperatures, setDailyTemperatures] = useState([]);
   const today = new Date();
@@ -35,11 +35,11 @@ function App() {
   
   const [visible, setVisible] = useState(false)
 
-  useEffect(()=>{
-    if(data || currentWeather){
-      setShowData(true)
-    }
-  }, [data, currentWeather])
+  // useEffect(()=>{
+  //   if(data || currentWeather){
+  //     setShowData(true)
+  //   }
+  // }, [data, currentWeather])
 
   return (
     <main>
@@ -125,7 +125,7 @@ function App() {
         <div className="title-details">
           <h1>Today's Highlights</h1>
         </div>
-          <CardDetailsWeather currentWeather={currentWeather} data={data} showData={showData} setCurrentWeather={setCurrenWeather}/>
+          <CardDetailsWeather currentWeather={currentWeather} data={data} showData={showData} setCurrentWeather={setCurrenWeather} lat={lat} long={long}/>
         </div>
       </div>
     </main>

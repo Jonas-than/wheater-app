@@ -5,7 +5,6 @@ function CardDetailsWeather({currentWeather, data, showData}) {
   const humidity = data?.main?.humidity || currentWeather?.main?.humidity;
   const porcentaje = typeof humidity === 'number' ? humidity : 0;
  
-console.log('Valor de porcentaje:', porcentaje);
 
   return (
     <div className='container-cards-details'>

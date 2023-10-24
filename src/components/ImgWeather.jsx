@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react'
 function ImgWeather({data, dailyTemperatures}) {
   const [weather, setWeather] = useState({});
   const [weatherImage, setWeatherImage] = useState(null)
-  const [date, setDate] = useState('2023-10-25');
+  //const [date, setDate] = useState('2023-10-25');
 
   const weatherImages = {
     '01d': './public/Clear.png',
