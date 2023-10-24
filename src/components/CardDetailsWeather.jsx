@@ -20,7 +20,8 @@ console.log('Valor de porcentaje:', porcentaje);
 
       <div className='container-card-details'>
          <h3>Humidity</h3>
-         <h1>{showData ? data?.main.humidity : currentWeather?.main.humidity}&nbsp;%</h1>
+         <div className='content-card'>
+         <h1>{showData ? data?.main.humidity : currentWeather?.main.humidity}&nbsp;</h1><h2>%</h2></div>
           <div className='container-porcentage'>
          <div className='container-bar'>
           <div>0</div><div>50</div><div>100</div>

@@ -3,8 +3,6 @@ import { Sidebar } from 'primereact/sidebar';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { InputText } from 'primereact/inputtext';
 import { Button } from "primereact/button";
-import useLocation from '../services/useLocation';
-import { useState } from 'react';
 
 function Sidebar1({setVisible, visible, setShowData, handleClickCityDefault, handleClickCityDefaultForecast, changeCity, changeCityForecast, city, data}) {
   

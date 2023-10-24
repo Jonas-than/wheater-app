@@ -55,7 +55,7 @@ function App() {
           </button>
           </div>
           <button className="btn-principal geolocation" onClick={(e) => { handleLocation();
-            setShowData(false); changeCityForecast(e)
+            setShowData(false); handleClickCityDefaultForecast(e)
           }}>
             <MyLocationIcon />
           </button>
